@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!--
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║  public/index.html  —  The ONE HTML file in the entire project  ║
+  ╚══════════════════════════════════════════════════════════════════╝
+
+  WHY ONLY ONE HTML FILE?
+  ─────────────────────────────────────────────────────────────────
+  This is a Single Page Application (SPA). React loads once into
+  this file, then controls all navigation in JavaScript — no page
+  reloads, no multiple .html files.
+
+  React Native analogy:
+    This file  ≈  AppRegistry.registerComponent() in index.js
+    React injects your ENTIRE app into <div id="root"> below.
+    Everything you see on screen comes from App.jsx, not this file.
+
+  YOU ALMOST NEVER NEED TO EDIT THIS FILE.
+  The only reasons to edit it:
+    1. Add a new CDN library (like Font Awesome below)
+    2. Change the <title> tag
+    3. Add SEO meta tags
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <!--
+      viewport meta tag:
+      Without this, mobile browsers render the page at desktop width
+      then scale it down (looks tiny). This tells them to use the
+      actual device width instead.
+
+      React Native analogy: Android's windowSoftInputMode / iOS safe area.
+      In web we handle it with this single meta tag.
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--
+      theme-color: sets the browser toolbar / status bar colour on
+      Android Chrome. Matches your site's cream background.
+    -->
+    <meta name="theme-color" content="#FAFAF7" />
+
+    <!-- ══════════════════════════════════════════════════════
+         SEO META TAGS
+         These are read by Google, LinkedIn, and search engines.
+         They don't affect how the page looks — only how it's
+         indexed and previewed in search results / social shares.
+    ══════════════════════════════════════════════════════════ -->
+    <meta
+      name="description"
+      content="Hafiz Danish Zubair — Lead Software Developer specializing in React Native, Android, iOS & .NET APIs. 10+ years experience. Abu Dhabi, UAE. H-1B Transfer Eligible."
+    />
+    <meta
+      name="keywords"
+      content="React Native developer, Android developer, iOS developer, mobile app developer, UAE, H-1B, lead software developer, Abu Dhabi"
+    />
+    <meta name="author" content="Hafiz Danish Zubair" />
+
+    <!-- ══════════════════════════════════════════════════════
+         OPEN GRAPH TAGS (og:)
+         Controls how your page looks when shared on:
+           LinkedIn, WhatsApp, Facebook, Slack, Twitter/X
+         Without these, shared links show a generic blank preview.
+    ══════════════════════════════════════════════════════════ -->
+    <meta property="og:title"       content="Hafiz Danish Zubair — Lead Software Developer" />
+    <meta property="og:description" content="10+ years building React Native, Android & iOS apps across government, fintech, real estate & entertainment." />
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content="https://danithedeveloper.github.io" />
+
+    <!-- Twitter card — controls Twitter/X preview specifically -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="Hafiz Danish Zubair — Lead Software Developer" />
+    <meta name="twitter:description" content="10+ years building mobile apps. React Native · Android · iOS · .NET APIs." />
+
+    <!-- ══════════════════════════════════════════════════════
+         PERFORMANCE: preconnect
+         Opens a TCP connection to Google Fonts BEFORE the
+         browser actually needs the font files.
+         Saves ~100–200ms on font load time.
+
+         React Native analogy: similar to prefetching data
+         before a screen renders, so it's ready instantly.
+    ══════════════════════════════════════════════════════════ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- ══════════════════════════════════════════════════════
+         FONT AWESOME 6 — Icon Library
+         ─────────────────────────────────────────────────────
+         WHY loaded here instead of inside App.jsx:
+           If you import it inside a React component, the CSS gets
+           injected AFTER React renders — icons flash as empty
+           squares for a split second on first load.
+           Loading here means icons are ready BEFORE React runs.
+
+         integrity="sha512-...":
+           SRI (Sub-Resource Integrity) hash. The browser
+           computes a hash of the downloaded file and compares
+           it to this value. If someone tampers with the CDN
+           file, the browser rejects it. Security best practice
+           for all CDN resources.
+
+         crossorigin="anonymous":
+           Tells the browser not to send cookies with the
+           CDN request (privacy + security).
+
+         referrerpolicy="no-referrer":
+           Don't tell the CDN which page you're on.
+    ══════════════════════════════════════════════════════════ -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Hafiz Danish Zubair — Lead Software Developer</title>
+  </head>
+  <body>
+    <!--
+      noscript: Only shown if the user has JavaScript DISABLED.
+      React requires JavaScript to function. Almost nobody
+      disables JS today, but this is a graceful fallback.
+    -->
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <!--
+      ╔═══════════════════════════════════════════════════════╗
+      ║  <div id="root">  —  React's Mount Point             ║
+      ╠═══════════════════════════════════════════════════════╣
+      ║  This is the ONLY element React cares about.         ║
+      ║  React injects your entire component tree here.      ║
+      ║  Everything visible on screen comes from App.jsx.    ║
+      ║                                                       ║
+      ║  React Native analogy:                               ║
+      ║    AppRegistry.registerComponent('App', () => App)   ║
+      ╚═══════════════════════════════════════════════════════╝
+    -->
+    <div id="root"></div>
+  </body>
+</html>
